@@ -1,0 +1,13 @@
+columns:
+    imageThumb:
+        label: 'dizoo.pageheaders::lang.strings.header_image'
+        sortable: false
+        searchable: false
+        type: partial
+        path: img_thumb
+        width: 107px
+    pageid:
+        label: 'dizoo.pageheaders::lang.strings.header_page'
+        type: ucfirst
+        searchable: true
+        sortable: true

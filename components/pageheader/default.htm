@@ -1,0 +1,29 @@
+{% if pageheader %}
+<section class="section breadcrumb-area pt-100 pb-80" style="background-image: url({{ pageheader.image.path }});">
+    <div class="overlay bg-black alpha-50"></div>
+    <div class="container bread-container t-center">
+        <div class="row bread-row">
+            <div class="col-md-10 col-md-offset-1 col-xs-12 text-center">
+                <div class="section-top-title">
+                    <h1 class="t-uppercase font-45">{{ this.page.title }}</h1>
+                    <ol class="breadcrumb">
+                        <li><a href="{{ 'home'|page }}"><i class="fa fa-home mr-10"></i>Home</a></li>
+                        {% if this.page.url matches '{^\/[^/]([^/]+)\/}' %}
+                            {% set pages = this.page.url|split('/') %}
+                            {% for subpage in pages %}
+                                {% if not loop.first and not loop.last %}
+                                    {% if subpage|page %}
+                                        {% set title = subpage|capitalize|replace({'-': "", '_': " "}) %}
+                                        <li><a href="{{ subpage|page }}">{{ title }}</a></li>
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                        <li class="active">{{ this.page.title }}</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}

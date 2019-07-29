@@ -1,0 +1,17 @@
+fields:
+    image:
+        label: 'dizoo.pageheaders::lang.strings.header_image'
+        mode: image
+        useCaption: 0
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: left
+        required: 1
+        type: fileupload
+    pageid:
+        label: 'dizoo.pageheaders::lang.strings.header_page'
+        showSearch: true
+        span: left
+        required: 1
+        type: dropdown
