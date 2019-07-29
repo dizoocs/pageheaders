@@ -31,6 +31,14 @@ class Headers extends Model
         foreach($pages as $page) {
             $options[$page->id] = $page->title;
         }
+
+        if (class_exists('RainLab\Pages\Classes\PageList')) {
+            $staticPages = new \RainLab\Pages\Classes\PageList($theme);
+            foreach ($staticPages->listPages() as $name => $pageObject) {
+                $options[$pageObject->id] = $pageObject->title;
+            }
+        }
+
         asort($options);
         return $options;
     }

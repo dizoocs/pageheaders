@@ -1,2 +1,7 @@
 # pageheaders
-Plugin to add Page header with breadcrumbs
+Plugin to add page header with breadcrumbs
+
+### Fields
+
+- image
+- page
