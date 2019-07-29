@@ -3,3 +3,5 @@
 1.0.2:
     - 'Initial release'
     - builder_table_create_dizoo_pageheaders_headers.php
+1.0.3:
+    - 'Add Rainlab Static Pages support'
