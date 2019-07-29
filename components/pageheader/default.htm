@@ -1,5 +1,5 @@
 {% if pageheader %}
-<section class="section breadcrumb-area pt-100 pb-80" style="background-image: url({{ pageheader.image.path }});">
+<section class="section breadcrumb-area pt-100 pb-80" style="background-image: url({{ pageheader.image.thumb(1920,900,{'mode':'crop'}) }});">
     <div class="overlay bg-black alpha-50"></div>
     <div class="container bread-container t-center">
         <div class="row bread-row">
