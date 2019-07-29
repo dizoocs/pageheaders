@@ -1,0 +1,17 @@
+plugin:
+    name: 'dizoo.pageheaders::lang.plugin.name'
+    description: 'dizoo.pageheaders::lang.plugin.description'
+    author: Dizoo
+    icon: oc-icon-puzzle-piece
+    homepage: ''
+permissions:
+    manage-pageheaders:
+        tab: 'dizoo.pageheaders::lang.strings.manage_headers_title'
+        label: 'dizoo.pageheaders::lang.strings.manage_headers_label'
+navigation:
+    main-menu-item:
+        label: 'dizoo.pageheaders::lang.plugin.name'
+        url: dizoo/pageheaders/headers
+        icon: icon-puzzle-piece
+        permissions:
+            - manage-pageheaders

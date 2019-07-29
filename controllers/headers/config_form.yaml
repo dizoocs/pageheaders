@@ -1,0 +1,17 @@
+name: Headers
+modelClass: Dizoo\PageHeaders\Models\Headers
+form: $/dizoo/pageheaders/models/headers/fields.yaml
+defaultRedirect: dizoo/pageheaders/headers
+create:
+    title: 'dizoo.pageheaders::lang.strings.create_header'
+    redirect: 'dizoo/pageheaders/headers/update/:id'
+    redirectClose: dizoo/pageheaders/headers
+    flashSave: 'dizoo.pageheaders::lang.strings.created_header'
+update:
+    title: 'dizoo.pageheaders::lang.strings.edit_header'
+    redirect: dizoo/pageheaders/headers
+    redirectClose: dizoo/pageheaders/headers
+    flashSave: 'dizoo.pageheaders::lang.strings.saved_header'
+    flashDelete: 'dizoo.pageheaders::lang.strings.deleted_header'
+preview:
+    title: 'dizoo.pageheaders::lang.strings.view_header'
