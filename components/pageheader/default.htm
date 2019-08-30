@@ -13,7 +13,7 @@
                             {% for subpage in pages %}
                                 {% if not loop.first and not loop.last %}
                                     {% if subpage|page %}
-                                        {% set title = subpage|capitalize|replace({'-': "", '_': " "}) %}
+                                        {% set title = subpage|capitalize|replace({'-': " ", '_': " "}) %}
                                         <li><a href="{{ subpage|page }}">{{ title }}</a></li>
                                     {% endif %}
                                 {% endif %}

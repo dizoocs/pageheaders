@@ -9,3 +9,5 @@
     - 'Crop images to the right size'
 1.0.5:
     - 'Changed lang folder name to en'
+1.0.6:
+    - 'Fix for not properly deslugging the url in the navigation of subpages'
