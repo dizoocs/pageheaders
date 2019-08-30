@@ -120,7 +120,7 @@
     content: "/\00a0";
 }
 
-ul, ol {
+.breadcrumb ol {
     padding: 0;
     margin: 0;
     list-style: none;
