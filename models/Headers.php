@@ -29,13 +29,19 @@ class Headers extends Model
         $options = [];
 
         foreach($pages as $page) {
-            $options[$page->id] = $page->title;
+            $pageCheck = Headers::where('pageid', $page->id)->first();
+            if (!$pageCheck || $page->id == $this->pageid) {
+                $options[$page->id] = $page->title;
+            }
         }
 
         if (class_exists('RainLab\Pages\Classes\PageList')) {
             $staticPages = new \RainLab\Pages\Classes\PageList($theme);
             foreach ($staticPages->listPages() as $name => $pageObject) {
-                $options[$pageObject->id] = $pageObject->title;
+                $staticCheck = Headers::where('pageid', $pageObject->id)->first();
+                if (!$staticCheck || $pageObject->id == $this->pageid) {
+                    $options[$pageObject->id] = $pageObject->title;
+                }
             }
         }
 
