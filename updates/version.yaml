@@ -11,3 +11,5 @@
     - 'Changed lang folder name to en'
 1.0.6:
     - 'Fix for not properly deslugging the url in the navigation of subpages'
+1.0.7:
+    - 'When creating or editing a page header only pages without a header will show up.'
