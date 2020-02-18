@@ -1,5 +1,6 @@
 <?php namespace Dizoo\PageHeaders;
 
+use Dizoo\PageHeaders\Components\PageHeader;
 use System\Classes\PluginBase;
 
 class Plugin extends PluginBase
@@ -7,23 +8,23 @@ class Plugin extends PluginBase
     public function registerComponents()
     {
         return [
-            \Dizoo\PageHeaders\Components\pageheader::class       => 'pageheader'
+            PageHeader::class       => 'pageheader'
         ];
     }
 
     public function registerSettings()
     {
     }
-    
+
     public function registerListColumnTypes()
     {
         return [
-            'ucfirst' => [$this, 'upperCaseFirst'],
+            'ucfirst' => [$this, 'formatTitle'],
         ];
     }
-    
-    public function upperCasefirst($value, $column, $record)
+
+    public function formatTitle($value, $column, $record)
     {
-        return ucfirst($value);
+        return ucfirst(str_replace('-', ' ', $value));
     }
 }
