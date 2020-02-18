@@ -16,12 +16,9 @@ class PageHeader extends ComponentBase {
 
     public function onRun()
     {
-        $header = $this->getHeader();
-        if($header) {
-            $this->page['pageheader'] = $header;
+        $this->page['pageheader'] = $this->getHeader();
+        if($this->page['pageheader']) {
             $this->addCss('/plugins/dizoo/pageheaders/assets/css/header-style.css');
-        } else {
-            $this->page['pageheader'] = false;
         }
 
     }
@@ -29,6 +26,7 @@ class PageHeader extends ComponentBase {
     public function getHeader()
     {
         $pageid = $this->page->id;
-        return Headers::where('pageid', $pageid)->first();
+        $header = Headers::where('pageid', $pageid)->first();
+        return $header ? $header : false;
     }
 }
