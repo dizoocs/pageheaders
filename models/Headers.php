@@ -3,14 +3,15 @@
 use Model;
 use Cms\Classes\Page as Pg;
 use Cms\Classes\Theme;
+use October\Rain\Database\Traits\Validation;
 
 /**
  * Model
  */
 class Headers extends Model
 {
-    use \October\Rain\Database\Traits\Validation;
-    
+    use Validation;
+
     public $attachOne = [
         'image' => 'System\Models\File'
     ];
@@ -29,18 +30,20 @@ class Headers extends Model
         $options = [];
 
         foreach($pages as $page) {
-            $pageCheck = Headers::where('pageid', $page->id)->first();
+            $pageCheck = Headers::where('pageid', $page->id)->where('static_page', 0)->first();
             if (!$pageCheck || $page->id == $this->pageid) {
-                $options[$page->id] = $page->title;
+                $options[$page->id] = '[CMS] '.$page->title;
+                $this->static_page = 0;
             }
         }
 
         if (class_exists('RainLab\Pages\Classes\PageList')) {
             $staticPages = new \RainLab\Pages\Classes\PageList($theme);
             foreach ($staticPages->listPages() as $name => $pageObject) {
-                $staticCheck = Headers::where('pageid', $pageObject->id)->first();
+                $staticCheck = Headers::where('pageid', $pageObject->id)->where('static_page', 1)->first();
                 if (!$staticCheck || $pageObject->id == $this->pageid) {
-                    $options[$pageObject->id] = $pageObject->title;
+                    $options[$pageObject->id] = '[Static] '.$pageObject->title;
+                    $this->static_page = 1;
                 }
             }
         }
@@ -48,8 +51,22 @@ class Headers extends Model
         asort($options);
         return $options;
     }
-    
-    
+
+    public function beforeCreate()
+    {
+        $this->static_page = $this->isStaticPage();
+    }
+
+    private function isStaticPage(): bool
+    {
+        if (!class_exists('RainLab\Pages\Classes\Page')) return 0;
+        $theme = Theme::getEditTheme();
+        $staticPages = new \RainLab\Pages\Classes\PageList($theme);
+        foreach ($staticPages->listPages() as $name => $pageObject) {
+            if ($this->pageid === $pageObject->id) return 1;
+        }
+        return 0;
+    }
     /**
      * @var string The database table used by the model.
      */
@@ -60,6 +77,7 @@ class Headers extends Model
      */
     public $rules = [
         'image' => 'required',
-        'pageid' => 'required|unique:dizoo_pageheaders_headers,pageid'
+        'static_page' => 'boolean',
+        'pageid' => 'required'
     ];
 }

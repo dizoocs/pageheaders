@@ -15,3 +15,6 @@
     - 'When creating or editing a page header only pages without a header will show up.'
 1.1.0:
     - 'Properly formatted the page title in the list and optimised code.'
+1.1.1:
+    - 'Fix for not properly displaying static pages.'
+    - static_page_fix.php
