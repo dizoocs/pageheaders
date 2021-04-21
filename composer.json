@@ -1,5 +1,5 @@
 {
-    "name": "dizoo/pageheaders",
+    "name": "dizoo/pageheaders-plugin",
     "type": "october-plugin",
     "description": "This plugin adds a image header with breadcrumbs to your pages.",
     "authors": [
