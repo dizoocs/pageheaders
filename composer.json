@@ -1,0 +1,13 @@
+{
+    "name": "frenksmeets/pageheaders",
+    "type": "october-plugin",
+    "description": "This plugin adds a image header with breadcrumbs to your pages.",
+    "authors": [
+        {
+            "name": "Frenk"
+        }
+    ],
+    "require": {
+        "composer/installers": "~1.0"
+    }
+}
