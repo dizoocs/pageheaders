@@ -7,12 +7,13 @@ class BuilderTableCreateDizooPageheadersHeaders extends Migration
 {
     public function up()
     {
-        Schema::create('dizoo_pageheaders_headers', function($table)
-        {
-            $table->engine = 'InnoDB';
-            $table->increments('id')->unsigned();
-            $table->string('pageid', 255);
-        });
+        if (!Schema::hasTable('dizoo_pageheaders_headers')) {
+            Schema::create('dizoo_pageheaders_headers', function ($table) {
+                $table->engine = 'InnoDB';
+                $table->increments('id')->unsigned();
+                $table->string('pageid', 255);
+            });
+        }
     }
     
     public function down()
