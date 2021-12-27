@@ -18,3 +18,5 @@
 1.1.1:
     - 'Fix for not properly displaying static pages.'
     - static_page_fix.php
+1.1.2:
+    - 'Add a option to not include the CSS to the component.'

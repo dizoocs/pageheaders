@@ -14,5 +14,8 @@
         'view_header' => 'View header',
         'manage_headers_title' => 'Page headers',
         'manage_headers_label' => 'Manage page headers',
+        'include_css' => 'Include CSS',
+        'page_header_title' => 'Page header',
+        'page_header_description' => 'Adds a page header section to the page.',
     ],
 ];

@@ -14,5 +14,8 @@
         'view_header' => 'Header bekijken',
         'manage_headers_title' => 'Pagina header',
         'manage_headers_label' => 'Beheer pagina headers',
+        'include_css' => 'CSS includeren',
+        'page_header_title' => 'Pagina header',
+        'page_header_description' => 'Voegt een pagina header sectie toe op de pagina.',
     ],
 ];
