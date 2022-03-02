@@ -28,7 +28,7 @@ class PageHeader extends ComponentBase {
     public function onRun()
     {
         $this->page['pageheader'] = $this->getHeader();
-        if ($this->page['pageheader'] && $this->property('inject_css') == true) {
+        if ($this->page['pageheader'] && $this->property('include_css') == true) {
             $this->addCss('/plugins/dizoo/pageheaders/assets/css/header-style.css');
         }
 

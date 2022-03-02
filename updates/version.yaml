@@ -20,3 +20,5 @@
     - static_page_fix.php
 1.1.2:
     - 'Add a option to not include the CSS to the component.'
+1.1.3:
+    - 'Add fix for including CSS to the component.'
