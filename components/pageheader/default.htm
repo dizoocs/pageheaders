@@ -9,7 +9,7 @@
                     <ol class="breadcrumb">
                         <li><a href="{{ 'home'|page }}"><i class="fa fa-home mr-10"></i>Home</a></li>
                         {% if this.page.url matches '{^\/[^/]([^/]+)\/}' %}
-                            {% set pages = this.page.url|split('/') %}
+                            {% set pages = this.page.url|split('/:')[0]|split('/') %}
                             {% for subpage in pages %}
                                 {% if not loop.first and not loop.last %}
                                     {% if subpage|page %}

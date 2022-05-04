@@ -15,10 +15,7 @@ class Headers extends Model
     public $attachOne = [
         'image' => 'System\Models\File'
     ];
-    /*
-     * Disable timestamps by default.
-     * Remove this line if timestamps are defined in the database table.
-     */
+
     public $timestamps = false;
 
     protected $pages = [];
@@ -67,14 +64,9 @@ class Headers extends Model
         }
         return 0;
     }
-    /**
-     * @var string The database table used by the model.
-     */
+
     public $table = 'dizoo_pageheaders_headers';
 
-    /**
-     * @var array Validation rules
-     */
     public $rules = [
         'image' => 'required',
         'static_page' => 'boolean',
